@@ -21,6 +21,8 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void addTask(Task task) {
+        task.setCreationDate(new Date());
+        task.setActive(true);
         taskRepository.save(task);
     }
 
