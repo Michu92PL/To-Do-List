@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Task!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h2 center>DODAJ ZADANIE</h2>
+
+    <form th:action="@{/addTask}" method="post" th:object="${Task}">
+        <div class="form-group">
+            <p> <label>Opis</label>
+                <br/>
+                <textarea rows="4" cols="50" th:field="*{description}" ></textarea>
+            </p>
+            <p> <label>Do kiedy?</label>
+                <br/>
+                <input type="text" name="UntilWhen" th:field="*{untilWhen}">
+            </p>
+            <p><label>Jaka ważność?</label>
+                <br/>
+                <input type="text" name="Importance" th:field="*{importance}">
+            </p>
+
+        </div>
+        <button type="submit">Dodaj!</button>
+    </form>
+</div>
+
+</body>
+</html>

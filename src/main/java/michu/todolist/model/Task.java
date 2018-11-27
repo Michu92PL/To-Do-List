@@ -20,12 +20,10 @@ public class Task {
     public Task() {
     }
 
-    public Task(Date creationDate, Date untilWhen, String description, short importance, boolean isActive) {
-        this.creationDate = creationDate;
+    public Task(Date untilWhen, String description, short importance) {
         this.untilWhen = untilWhen;
         this.description = description;
         this.importance = importance;
-        this.isActive = isActive;
     }
 
     public Date getCreationDate() {
