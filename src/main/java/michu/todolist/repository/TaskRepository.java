@@ -9,5 +9,5 @@ import java.util.Collection;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
-    Collection<Task> findAllActive();
+    Collection<Task> findAllByActiveTrue();
 }
