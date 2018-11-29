@@ -1,6 +1,10 @@
 package michu.todolist.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -9,36 +13,37 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Temporal(TemporalType.DATE)
-    private Date creationDate;
-    @Temporal(TemporalType.DATE)
-    private Date untilWhen;
+    // @Temporal(TemporalType.DATE)
+    private LocalDate creationDate;
+    //@Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate untilWhen;
     private String description;
     private short importance;
-    private boolean isActive;
+    private boolean active;
 
     public Task() {
     }
 
-    public Task(Date untilWhen, String description, short importance) {
+    public Task(LocalDate untilWhen, String description, short importance) {
         this.untilWhen = untilWhen;
         this.description = description;
         this.importance = importance;
     }
 
-    public Date getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
-    public Date getUntilWhen() {
+    public LocalDate getUntilWhen() {
         return untilWhen;
     }
 
-    public void setUntilWhen(Date untilWhen) {
+    public void setUntilWhen(LocalDate untilWhen) {
         this.untilWhen = untilWhen;
     }
 
@@ -59,10 +64,10 @@ public class Task {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        this.active = active;
     }
 }
