@@ -5,6 +5,7 @@ import michu.todolist.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import java.util.stream.Collectors;
@@ -21,7 +22,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void addTask(Task task) {
-        task.setCreationDate(new Date());
+        task.setCreationDate(LocalDate.now());
         task.setActive(true);
         taskRepository.save(task);
     }
@@ -34,7 +35,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Collection<Task> findAllActive() {
-        return taskRepository.findAll().stream().filter(t -> t.isActive()).collect(Collectors.toList());
+        return taskRepository.findAllByActiveTrue();
     }
 
     @Override
