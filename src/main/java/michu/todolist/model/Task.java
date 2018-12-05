@@ -4,8 +4,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 public class Task {
@@ -29,6 +27,10 @@ public class Task {
         this.untilWhen = untilWhen;
         this.description = description;
         this.importance = importance;
+    }
+    
+    public long getId() {
+        return id;
     }
 
     public LocalDate getCreationDate() {
