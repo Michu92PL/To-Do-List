@@ -31,17 +31,26 @@
             <td th:text="${task.getUntilWhen()}">asd</td>
             <td th:text="${task.getImportance()}">asd</td>
             <div>
-            <td th:text="${task.getDescription()}">asd</td>
+                <td th:text="${task.getDescription()}">asd</td>
             </div>
             <td th:text="${task.getCreationDate()}">asd</td>
             <td>
-            <input type="checkbox" name="${task.getId()}" value="checked" style="text-align:center; vertical-align: middle;">
-        </td>
+                <form th:action="@{/change-status}" method="post">
+                    <input name="id" th:value="${task.id}" hidden />
+                    <!--<input type="checkbox" name="status" value="checked"-->
+                           <!--style="text-align:center; vertical-align: middle;">-->
+                    <input type="submit" value="WYKONANO"/>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
     <a th:href="@{/add}">
         DODAJ ZADANIE
+    </a>
+    </br>
+    <a th:href="@{/}">
+        ZARCHIWIZUJ
     </a>
 </div>
 
