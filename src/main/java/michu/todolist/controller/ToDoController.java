@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -15,24 +16,30 @@ import javax.validation.Valid;
 public class ToDoController {
 
     @Autowired
-    TaskService taskService;
+    private TaskService taskService;
 
     @GetMapping("/add")
-    public ModelAndView showAddView(){
+    public ModelAndView showAddView() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("addTask");
         modelAndView.addObject("Task", new Task());
         return modelAndView;
     }
 
+    @PostMapping("/change-status")
+    public String changeTaskStatus(@RequestParam("id") Long taskId) {
+        taskService.archiveTask(taskId);
+        return "redirect:/";
+    }
+
     @PostMapping("/add")
-    public String addTask(@Valid  @ModelAttribute("Task") Task task){
+    public String addTask(@Valid @ModelAttribute("Task") Task task) {
         taskService.addTask(task);
         return "redirect:/";
     }
 
     @GetMapping("/")
-    public ModelAndView showTasks(){
+    public ModelAndView showTasks() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("tasks");
         modelAndView.addObject("tasks", taskService.findAllActive());
