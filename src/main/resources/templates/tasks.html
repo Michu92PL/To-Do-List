@@ -10,6 +10,7 @@
             width: 200px;
             word-break: break-all;
             white-space: normal;
+            text-align: center;
         }
          body{
              background-color: dimgrey;
@@ -48,13 +49,15 @@
         </tr>
         </tbody>
     </table>
-    <a th:href="@{/add}">
-        DODAJ ZADANIE
-    </a>
-    </br>
-    <a th:href="@{/}">
-        ZARCHIWIZUJ
-    </a>
+</div>
+<div class="container" align="center">
+    <table class="table table-dark">
+        <tbody>
+        <tr>
+            <th scope="col" align="center"><a th:href="@{/add}">DODAJ ZADANIE</a></th>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>
