@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a Task!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: dimgrey;
+        }
+        .container{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container" align="center">
+    <table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">UPS, COŚ POSZŁO NIE TAK
+        <br/>
+        SPRÓBUJ JESZCZE RAZ</th>
+    </tr>
+    </thead>
+    </table>
+</div>
+<div class="container" align="center">
+    <table class="table table-dark">
+    <tbody>
+    <tr>
+        <th scope="col" align="center"><a th:href="@{/add}">DODAJ ZADANIE</a></th>
+        <th scope="col" align="center"><a th:href="@{/}">WYŚWIETL ZADANIA</a></th>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</body>
+</html>
